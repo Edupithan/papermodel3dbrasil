@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Model Brasil - Modelos de Papel 3D</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TBLJ20QE6Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7CPS3P0615');
+    </script>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #7c3aed;
+            --accent-color: #f59e0b;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #f1f5f9;
+            --border-color: #e2e8f0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-img-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .header-img-wrapper img {
+            display: block;
+            width: 65%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .header-img-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.5) 0%, rgba(49, 46, 129, 0.5) 100%);
+            z-index: 1;
+        }
+
+        header::before {
+            display: none;
+        }
+        
+        header .container {
+            display: none;
+        }
+
+        .header-text-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #fbbf24;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            font-weight: 300;
+            margin-top: 10px;
+        }
+        
+        hr.divider {
+            border: none;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+            margin: 40px auto;
+            max-width: 80%;
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: white;
+            margin: 40px auto;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 1200px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 800;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin: 50px 0 30px;
+            color: var(--text-dark);
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        h2.red { color: #dc2626; }
+        h2.green { color: #16a34a; }
+        h2.blue { color: #0284c7; }
+        h2.orange { color: #ea580c; }
+        h2.yellow { color: #ca8a04; }
+        h2.lime { color: #65a30d; }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+        
+        .collections-highlight {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border-left: 6px solid var(--primary-color);
+        }
+        
+        .collections-count {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ca8a04;
+            display: inline-block;
+            margin: 0 5px;
+        }
+        
+        .categories-list {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            margin: 30px 0;
+            line-height: 2;
+        }
+        
+        .categories-list .cat-1 { color: #0ea5e9; }
+        .categories-list .cat-2 { color: #06b6d4; }
+        .categories-list .cat-3 { color: #ca8a04; }
+        .categories-list .cat-4 { color: #16a34a; }
+        .categories-list .cat-5 { color: #dc2626; }
+        .categories-list .cat-6 { color: #ea580c; }
+        .categories-list .cat-7 { color: #a855f7; }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.6);
+        }
+        
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .gallery-placeholder {
+            color: #94a3b8;
+            font-size: 1rem;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        /* Feature Sections */
+        .feature-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin: 60px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 20px;
+        }
+        
+        .feature-section.reverse {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        }
+        
+        .feature-section.alt {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        }
+        
+        .feature-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            background: white;
+            aspect-ratio: 3/2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .feature-content {
+            padding: 20px;
+        }
+        
+        .feature-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #334155;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: #25d366;
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+            background: #20ba5a;
+        }
+        
+        .whatsapp-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        /* Info Box */
+        .info-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            border: 3px solid #fbbf24;
+        }
+        
+        .info-box h3 {
+            font-size: 1.8rem;
+            color: #92400e;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        
+        footer p {
+            margin: 10px 0;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .main-content {
+                padding: 40px 20px;
+                margin: 20px 10px;
+            }
+            
+            .feature-section {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
+            }
+            
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .intro-text,
+            .feature-content p {
+                text-align: left;
+            }
+        }
+    .style1 {
+	font-size: 1.3rem;
+	font-weight: bold;
+	margin-top: 10px;
+	color: #00FFFF;
+	font-style: italic;
+}
+    .cta-button1 {            display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+    .cta-button2 {            display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.cta-button11 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+    .cta-button111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.cta-button21 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+    .cta-button1111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.cta-button211 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+    .cta-button11111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+    .cta-button111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+    .cta-button1111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.cta-button2111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+    .cta-button11111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+    .cta-button111111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.gallery-item1 {            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+    .cta-button1111111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.gallery-item11 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+    .cta-button11111111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.cta-button21111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.gallery-item111 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+    .cta-button111111111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.gallery-item1111 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+    .cta-button1111111111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.cta-button211111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.gallery-item11111 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+    .image-gallery1 {            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+}
+    .image-gallery11 {display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+}
+    .cta-button11111111111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.cta-button211112 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.gallery-item111111 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+    .cta-button111111111111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.cta-button2111121 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.gallery-item2 {            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+.gallery-item1111111 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+    .cta-button1111111111111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.gallery-item11111111 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+.gallery-item21 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+    .cta-button11111111111111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+    .cta-button111111111111111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.gallery-item22 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+    .cta-button1111111111111111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.gallery-item23 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+.gallery-item221 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+.image-gallery2 {            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+}
+    .cta-button11111111111111111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.gallery-item2211 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+.gallery-item231 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+.image-gallery21 {display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+}
+    .cta-button111111111111111111111 {display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+.gallery-item22111 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+.gallery-item232 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+.gallery-item2311 {border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: #f1f5f9;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+}
+.image-gallery3 {            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+}
+.image-gallery22 {display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+}
+.image-gallery211 {display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+}
+    .cta-button3 {            display: inline-block;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            color: white;
+            padding: 18px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+            text-align: center;
+            margin: 30px auto;
+            display: block;
+            max-width: 400px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-img-wrapper">
+            <img src="imagens/cabecalho.jpg" alt="Paper Model Brasil" width="75%" height="37%">
+            <div class="header-text-overlay">
+                <h1 class="logo">PAPER MODEL 3D BRASIL</h1>
+                <p class="style1">Transforme Papel em Arte Tridimensional</p>
+            </div>
+      </div>
+    </header>
+    
+    <hr class="divider">
+    
+    <div class="main-content">
+        <div class="container">
+            <h1>Bem-vindo ao Universo do &quot;<em>Papercraft</em>&quot;</h1>
+            
+            <p class="intro-text">
+                Mais do que simples passatempos, nossos modelos de papel são projetos de engenharia e beleza que transformam uma folha plana em uma escultura tridimensional impressionante. Nós fornecemos os moldes, e você se torna o artista, criando desde réplicas de arquitetura e veículos complexos até figuras geométricas modernas e personagens vibrantes. Prepare sua tesoura, sua cola e a sua paciência para embarcar nesta jornada criativa e extremamente gratificante.
+            </p>
+            
+          <div class="collections-highlight">
+                <p class="intro-text">
+                    Descubra aqui qual a coleção que mais atrai você.<br>
+                    Oferecemos <span class="collections-count">6</span> incríveis categorias de Coleções para montar, que satisfazem inteiramente seu gosto:
+                </p>
+                
+              <p class="categories-list">
+                  <span class="cat-1">Carros</span>, <span class="cat-2">Motos & Trens</span>; 
+                  <span class="cat-3">Navios</span>; 
+                  <span class="cat-4">Aviões</span>; 
+                  <span class="cat-5">Construções Arquitetônicas</span>; 
+                  <span class="cat-6">Espaço & Universo</span> e 
+              <span class="cat-7">Diversos Variados</span></p>
+              <div align="center"><a href="colecoes.htm" class="cta-button3">Ver Todas as Coleções</a></div>
+          </div>
+            
+            <hr class="divider">
+			
+			<table width="90%" border="1" align="center">
+              <tr>
+                <th width="33%" scope="col"><img src="imagens/stokcar.jpg" width="346" height="229"> </th>
+                <th width="34%" scope="col"> <img src="imagens/navio.jpg" width="346" height="229"> </th>
+                <th width="33%" scope="col"> <img src="imagens/casa.jpg" width="346" height="229"></th>
+              </tr>
+            </table>
+			<hr class="divider">
+            
+            <h2 class="red">Por Que Escolher o Papercraft?</h2>
+            
+            <div class="feature-section">
+                <div class="feature-image">
+                    <div class="gallery-placeholder"><img src="imagens/trem.jpg" width="433" height="286"></div>
+                </div>
+                <div class="feature-content">
+                    <p>
+                        Em um mundo digital, o papercraft oferece uma experiência tátil e relaxante, uma pausa bem-vinda das telas.
+                    </p>
+                    <p>
+                        É uma atividade ideal para todas as idades, estimulando a <strong>concentração</strong>, a <strong>coordenação motora fina</strong> e o <strong>raciocínio espacial</strong>.
+                    </p>
+                    <p>
+                        Nossos clientes comentam e relatam uma profunda sensação de realização ao verem o modelo finalizado, uma peça única feita pelas próprias mãos.
+                    </p>
+                    <p>
+                        Além disso, é uma opção de hobby acessível, exigindo apenas materiais básicos que você provavelmente já tem em casa.
+                    </p>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <h2 class="green">Qualidade e Design</h2>
+            
+            <div class="feature-section reverse">
+                <div class="feature-content">
+                    <p>
+                        Nosso catálogo é cuidadosamente revisado e corrigido por artistas e hobbystas de papel, garantindo que cada modelo não só tenha uma estética incrível, mas também seja <strong>tecnicamente viável e agradável de montar</strong>.
+                    </p>
+                    <p>
+                        Cada molde, geralmente, é acompanhado por instruções detalhadas, <strong>EM PORTUGUES</strong>, passo a passo, tornando até os projetos mais ambiciosos acessíveis para iniciantes.                    </p>
+                    <p>
+                        Investimos tempo em designs atrativos, com linhas limpas e formas precisas, para que o resultado final seja uma verdadeira peça de decoração e/ou colecionável.
+                    </p>
+                </div>
+                <div class="feature-image">
+                    <div class="gallery-placeholder"><img src="imagens/shuttle.jpg" width="433" height="284"></div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <h2 class="blue">A Perfeição do Minimalismo em 3D</h2>
+            
+            <div class="feature-section alt">
+                <div class="feature-content">
+                    <p>
+                        Diferentemente de outros hobbies que exigem pintura ou ferramentas caras, o papercraft utiliza a simplicidade do papel para criar um impacto visual máximo.
+                    </p>
+                    <p>
+                        O foco está na <strong>forma</strong> e na <strong>estrutura</strong>. Nossos modelos simples em branco, por exemplo, oferecem um minimalismo elegante que se encaixa perfeitamente em qualquer decoração moderna, destacando-se pela geometria pura e pelo design limpo.
+                    </p>
+                    <p>
+                        É a prova de que menos é, de fato, mais.
+                    </p>
+                </div>
+                <div class="feature-image">
+                    <div class="gallery-placeholder"><img src="imagens/grega.jpg" width="426" height="281"></div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <h2 class="orange">Seu Próximo Projeto Começa Aqui</h2>
+            
+            <div class="feature-section">
+                <div class="feature-image">
+                    <div class="gallery-placeholder"><img src="imagens/exemplo.jpg" width="448" height="293"></div>
+                </div>
+                <div class="feature-content">
+                    <p>
+                        Seja você um novato curioso procurando o primeiro projeto ou um veterano do papercraft em busca de um novo desafio, temos o modelo perfeito para você.
+                    </p>
+                    <p>
+                        Explore nossas coleções por nível de dificuldade, categoria ou tema.
+                    </p>
+                    <p>
+                        Cada compra garante o download imediato do arquivo PDF, pronto para imprimir e começar a construir.
+                    </p>
+                    <p>
+                        Nossa plataforma é segura e pensada para facilitar o acesso à sua próxima aventura criativa.
+                    </p>
+                </div>
+            </div>
+            
+            <div align="center"><a href="colecoes.htm" class="cta-button3">Ver Todas as Coleções</a></div>
+
+            <div class="whatsapp-section">
+                <h3 style="color: var(--text-dark); margin-bottom: 20px;">Converse conosco!</h3>
+                <a href="https://wa.me/5554994002514?text=Ola! Gostaria de saber mais sobre modelos 3D." target="_blank" class="whatsapp-btn">
+                    <span class="whatsapp-icon">💬</span>
+                    Fale pelo WhatsApp
+                </a>
+            </div>
+            
+            <hr class="divider">
+            
+            <h2 class="yellow">Montagem Facilitada: Suporte Completo</h2>
+            
+            <div class="feature-section reverse">
+                <div class="feature-content">
+                    <p>
+                        Sabemos que às vezes você pode precisar de uma mãozinha.
+                    </p>
+                    <p>
+                        É por isso que, além das instruções claras inclusas em cada template, nossa equipe oferece <strong>suporte dedicado</strong> por e-mail ou via chat.
+                    </p>
+                    <p>
+                        Estamos aqui para responder suas dúvidas sobre cortes, dobras ou a melhor cola a ser utilizada, garantindo que a sua experiência de montagem seja o mais suave e satisfatória possível.
+                    </p>
+                    <p>
+                        Seu sucesso é o nosso maior objetivo.
+                    </p>
+                </div>
+                <div class="feature-image">
+                    <div class="gallery-placeholder"><img src="imagens/suporte.jpg" width="436" height="285"></div>
+                </div>
+            </div>
+            
+            <hr class="divider">
+            
+            <div class="info-box">
+                <h3>Crie, Decore e Presenteie</h3>
+                
+                <p class="intro-text">
+                    Ao completar um modelo, você não ganha apenas uma escultura, mas um objeto com <strong>valor emocional inestimável</strong>.
+                </p>
+                
+                <p class="intro-text">
+                    Use-o para decorar seu escritório, sua sala de estar ou presenteie um amigo especial com algo feito de coração.
+                </p>
+                
+                <p class="intro-text">
+                    Comece a construir sua coleção hoje mesmo.
+                </p>
+                
+                <p class="intro-text" style="text-align: center; font-weight: 700; font-size: 1.2rem;">
+                    <strong>Clique abaixo, em &quot;Ver Todas as Coleções&quot;, para explorar nosso catálogo e encontre o modelo de<em> Papel 3D</em> que vai mudar a maneira como você vê uma simples folha de papel!</strong>                </p>
+            </div>
+            
+            <a href="colecoes.htm" class="cta-button">Ver Todas as Coleções</a>
+            
+            <div class="whatsapp-section">
+                <h3 style="color: var(--text-dark); margin-bottom: 20px;">Converse conosco!</h3>
+                <a href="https://wa.me/5554994002514?text=Ola! Gostaria de saber mais sobre modelos 3D." target="_blank" class="whatsapp-btn">
+                    <span class="whatsapp-icon">💬</span>
+                    Fale pelo WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; Paper Model 3D Brasil - "Seus melhores modelos 3D"</p>
+        <p class="copyright">Todos os direitos reservados.</p>
+    </footer>
+    <!-- Botão Flutuante Topo -->
+    <a href="#" id="btn-topo" onClick="window.scrollTo({top:0,behavior:'smooth'});return false;" title="Ir ao topo">Topo</a>
+
+    <style>
+        #btn-topo {
+            position: fixed;
+            bottom: 40px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #00BFFF;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 0 15px #00BFFF, 0 0 30px rgba(0,191,255,0.6);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            letter-spacing: 0.5px;
+        }
+        #btn-topo:hover {
+            background: #00e0ff;
+            box-shadow: 0 0 25px #00e0ff, 0 0 50px rgba(0,224,255,0.8);
+            transform: translateY(-4px);
+        }
+    </style>
+
+</body>
+</html>

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coleções - Paper Model Brasil</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TBLJ20QE6Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7CPS3P0615');
+    </script>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #7c3aed;
+            --accent-color: #f59e0b;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #f1f5f9;
+            --border-color: #e2e8f0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(49, 46, 129, 0.9) 100%), 
+                        url('imagens/cabecalho.jpg') center/cover no-repeat;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.85) 0%, rgba(49, 46, 129, 0.85) 100%);
+            z-index: 1;
+        }
+        
+        header .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #fbbf24;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .logo a {
+            color: #fbbf24;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .logo a:hover {
+            color: #fcd34d;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-weight: 300;
+            margin-top: 10px;
+        }
+        
+        .nav-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: #fbbf24;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 8px 20px;
+            border: 2px solid #fbbf24;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .nav-links a:hover {
+            background: #fbbf24;
+            color: #1e3a8a;
+        }
+        
+        hr.divider {
+            border: none;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+            margin: 40px auto;
+            max-width: 80%;
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: white;
+            margin: 40px auto;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 1200px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 800;
+        }
+        
+        .page-intro {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 40px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Collection Card */
+        .collection-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 3px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .collection-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .collection-card.cyan { border-color: #06b6d4; }
+        .collection-card.yellow { border-color: #eab308; }
+        .collection-card.green { border-color: #22c55e; }
+        .collection-card.red { border-color: #ef4444; }
+        .collection-card.orange { border-color: #f97316; }
+        .collection-card.purple { border-color: #a855f7; }
+        
+        .collection-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid;
+        }
+        
+        .collection-card.cyan .collection-header { border-color: #06b6d4; }
+        .collection-card.yellow .collection-header { border-color: #eab308; }
+        .collection-card.green .collection-header { border-color: #22c55e; }
+        .collection-card.red .collection-header { border-color: #ef4444; }
+        .collection-card.orange .collection-header { border-color: #f97316; }
+        .collection-card.purple .collection-header { border-color: #a855f7; }
+        
+        .collection-icon {
+            font-size: 3rem;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .collection-card.cyan .collection-icon { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+        .collection-card.yellow .collection-icon { background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); }
+        .collection-card.green .collection-icon { background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); }
+        .collection-card.red .collection-icon { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
+        .collection-card.orange .collection-icon { background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); }
+        .collection-card.purple .collection-icon { background: linear-gradient(135deg, #a855f7 0%, #9333ea 100%); }
+        
+        .collection-title {
+            flex: 1;
+        }
+        
+        .collection-title h2 {
+            font-size: 2rem;
+            margin: 0 0 5px 0;
+            font-weight: 800;
+        }
+        
+        .collection-card.cyan h2 { color: #0891b2; }
+        .collection-card.yellow h2 { color: #ca8a04; }
+        .collection-card.green h2 { color: #16a34a; }
+        .collection-card.red h2 { color: #dc2626; }
+        .collection-card.orange h2 { color: #ea580c; }
+        .collection-card.purple h2 { color: #9333ea; }
+        
+        .collection-subtitle {
+            font-size: 1rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+        
+        .collection-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 30px;
+        }
+        
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .model-item {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .model-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .model-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+        
+        .model-item p {
+            font-size: 0.95rem;
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        .whatsapp-link {
+            display: inline-block;
+            background: #001f5b;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 31, 91, 0.5);
+        }
+        
+        .whatsapp-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 31, 91, 0.7);
+            background: #002f8a;
+        }
+        
+        .whatsapp-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: #25d366;
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+            background: #20ba5a;
+        }
+        
+        .whatsapp-icon {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        
+        footer p {
+            margin: 10px 0;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .tagline {
+                font-size: 0.95rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .main-content {
+                padding: 40px 20px;
+                margin: 20px 10px;
+            }
+            
+            .collection-card {
+                padding: 30px 20px;
+            }
+            
+            .collection-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .collection-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .models-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    .style1 {font-size: 1.1rem; font-weight: 300; margin-top: 10px; color: #00FFFF; }
+
+    /* Estilos herdados de tabela-cmt.html */
+    .tabela-cmt-wrapper {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 40px;
+        border: 2px solid #e2e8f0;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    }
+    .tabela-cmt-wrapper .style29 { color: #1e293b; }
+    .tabela-cmt-wrapper .style54 { color: #0891b2; }
+    .tabela-cmt-wrapper .style60 { font-size: 18px; font-weight: bold; }
+    .tabela-cmt-wrapper .style61 { color: #334155; font-family: Arial, Helvetica, sans-serif; }
+    .tabela-cmt-wrapper .style62 { color: #334155; font-weight: bold; }
+    .tabela-cmt-wrapper .style65 { font-size: 16px; color: #334155; }
+    .tabela-cmt-wrapper .style67 { color: #b45309; font-weight: bold; }
+    .tabela-cmt-wrapper .style68 { color: #334155; font-family: Arial, Helvetica, sans-serif; font-size: 16px; }
+    .tabela-cmt-wrapper .style69 { color: #16a34a; font-weight: bold; }
+    .tabela-cmt-wrapper .style71 { font-family: Arial, Helvetica, sans-serif; font-size: 16px; }
+    .tabela-cmt-wrapper .style72 { color: #dc2626; font-weight: bold; }
+    .tabela-cmt-wrapper .style73 { color: #ea580c; font-weight: bold; }
+    .tabela-cmt-wrapper .style74 { font-size: 16px; }
+    .tabela-cmt-wrapper .style76 { color: #9333ea; font-weight: bold; }
+    .tabela-cmt-wrapper .style38 { color: #1e293b; font-family: Arial, Helvetica, sans-serif; font-size: 18px; }
+    .tabela-cmt-wrapper table { width: 90%; border-collapse: collapse; margin: 0 auto; }
+    .tabela-cmt-wrapper td { border: 1px solid #cbd5e1; padding: 8px; background-color: #ffffff; }
+
+    /* Galeria de imagens */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        margin: 30px 0;
+    }
+
+    .gallery-item {
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: #e0f7fa;
+    }
+
+    .gallery-item:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 35px rgba(6,182,212,0.3);
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.06);
+    }
+
+    .gallery-item .gallery-caption {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #0891b2;
+        text-align: center;
+        background: white;
+    }
+    .gallery-item1 {        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: #e0f7fa;
+}
+    .style80 {color: #000000; font-family: Arial, Helvetica, sans-serif; font-size: 16px; }
+.style81 {font-size: 16px; color: #000000; }
+.style82 {font-family: Arial, Helvetica, sans-serif}
+    .style3 {color: #009900}
+    .style4 {
+	color: #009900;
+	font-weight: bold;
+}
+    .style83 {
+	color: #FF0000;
+	font-weight: bold;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo"><a href="index.html">PAPER MODEL 3D BRASIL</a></h1>
+            <p class="style1">Nossas Coleções de Modelos 3D</p>
+            <div class="nav-links">
+                <a href="index.html">← Voltar para Home</a>
+                <a href="colecoes.htm">← Voltar para Coleções</a>            </div>
+        </div>
+    </header>
+    
+    <hr class="divider">
+    
+    <div class="main-content">
+        <div class="container">
+            <h1 class="style3">Aviões</h1>
+            
+            <p class="page-intro">
+                Se você é apaixonado pela aviação, vai adorar essa seção de modelismo! Monte sua aeronave favorita, do jeito que você sempre quis. Divida com a família e amigos o resultado de um belo modelo montado pelas suas mãos.   
+                Cada coleção foi cuidadosamente selecionada para oferecer projetos desafiadores e gratificantes 
+                para todos os níveis de habilidade.
+            </p>
+            
+            <!-- Coleção 1: Carros, Motos & Trens --><!-- Coleção 2: Navios --><!-- Coleção 3: Aviões --><!-- Coleção 4: Construções Arquitetônicas --><!-- Coleção 5: Espaço & Universo --><!-- Coleção 6: Diversos Variados -->
+<hr class="divider">
+
+            <!-- Conteúdo importado de tabela-cmt.html -->
+            <div class="tabela-cmt-wrapper">
+                <h3 align="center" class="style38">Bem vindos à Página da Coleção &quot;Aviões&quot;</h3>
+                <p align="center" class="style38">&nbsp;</p>
+                <p align="left" class="style38">As Coleções são <em>&quot;Coletâneas&quot;</em> de modelos, agrupados por uma categoria em comum, ou seja: agrupamos modelos de aviões e helicópteros em uma Coleção só (Aviões), também criamos uma Coleção de Navios, Carros,  assim por diante.<br />
+                  Veja abaixo uma descrição sobre a Coleção &quot;Aviões&quot;. </p>
+                <p>&nbsp;</p>
+                <table width="90%" border="1" align="center">
+                  <tr>
+                    <td width="32%" rowspan="2" valign="top"><p class="style29">Coleção <span class="style4">AVIÕES </span></p>
+                      <p class="style29">&nbsp;</p>
+                      <p align="center" class="style62"><img src="imagens/aguia.jpg" width="161" height="54"></p>
+                      <p align="center" class="style62"><img src="imagens/bristol.jpg" width="167" height="125"></p>
+                      <p align="center" class="style62"><img src="imagens/j3.jpg" width="169" height="97"></p>
+                      <p align="center" class="style62"><img src="imagens/trovao.jpg" width="170" height="124"></p>
+                      <p align="center" class="style62"><img src="imagens/miG-15.jpg" width="170" height="95"></p>
+                      <p align="center" class="style62">&nbsp;</p>
+                      <p align="center" class="style62">&nbsp;</p></td>
+                    <td width="37%" rowspan="2" valign="top"><p align="center" class="style61"><strong><u>Agrupa modelos como:</u> </strong></p>
+                        <p align="center" class="style61">&nbsp;</p>
+                        <p align="center" class="style80">Avi&otilde;es Militares, </p>
+                        <p align="center" class="style80">&nbsp;</p>
+                        <p align="center" class="style80">Avi&otilde;es Comerciais, </p>
+                        <p align="center" class="style80">&nbsp; </p>
+                        <p align="center" class="style80">Avi&otilde;es Ic&ocirc;nicos, </p>
+                        <p align="center" class="style80">&nbsp;</p>
+                        <p align="center" class="style80">Ca&ccedil;as de Combate, </p>
+                        <p align="center" class="style80">&nbsp;</p>
+                        <p align="center" class="style80">Avi&otilde;es Antigos, </p>
+                        <p align="center" class="style80">&nbsp;</p>
+                        <p align="center" class="style80">Avi&otilde;es da Fic&ccedil;&atilde;o, </p>
+                        <p align="center" class="style80">&nbsp;</p>
+                        <p align="center" class="style80">Helic&oacute;pteros, </p>
+                        <p align="center" class="style80">&nbsp;</p>
+                        <p align="center" class="style80">Dirig&iacute;vel, </p>
+                        <p align="center" class="style80">&nbsp;</p>
+                        <p align="center" class="style80">Bal&atilde;o de Ar, </p>
+                        <p align="center" class="style80">&nbsp;</p>
+                        <p align="center" class="style80">Avi&otilde;es Hist&oacute;ricos, etc.</p>
+                        <p align="center" class="style80">&nbsp;</p>
+                        <p align="center" class="style81"><span class="style82">.</span></p>
+                        <p align="center" class="style61">&nbsp;</p>
+                        <p align="center" class="style61">&nbsp;</p>
+                    <p align="center" class="style61">A Coleção possui <span class="style60">20 modelos</span> para montar. </p></td>
+                    <td width="31%" height="632"><p class="style29">- B-24<br />
+                      - Balão de Ar Quente <br />
+                      - Bristol Scout <br />
+                      -  Concorde<br />
+                      - F A-18 - Hornet<br />
+                      - FW-190<br />
+                      - Helicóptero Águia - PM SP
+                      <br />
+                      - J3 Piper Cub<br />
+                      - Mikoyan-Gurevich MiG-15<br />
+                      - P-11<br />
+                      - P-38 Lightning<br />
+                      - P-50<br />
+                      - R-100 Dirigible<br />
+                      - Sopwith Camel - Biplane<br />
+                      - Sopwith Camel - Triplane<br />
+                      - Sopwith Camel Bi &amp; Triplane<br />
+                      - Sopwith Snipe<br />
+                      - Spad VII - Sqn RCF<br />
+                      - SR - 71<br />
+                    - Thunder Blue (Trovão Azul) <br />
+                    </p></td>
+                  </tr>
+                  <tr>
+                    <td height="101"><div align="center">
+                      <p><strong>Instruções e Manuais de Montagem </strong></p>
+                      <p class="style83">EM PORTUGUES ! </p>
+                    </div></td>
+                  </tr>
+                </table>
+          </div>
+            
+            <div class="whatsapp-section">
+                <h2 style="color: var(--text-dark); margin-bottom: 20px;">Pronto para começar?</h2>
+                <p style="color: #64748b; margin-bottom: 30px; font-size: 1.1rem;">
+                    Faça seu pedido abaixo e começe agora no hobby que mais cresce no mundo. Diversão, individual ou em família. Realize seu trabalho!
+                </p>
+                <a href="CHECKOUT" 
+                   target="_parent" class="whatsapp-btn">
+                   Faça Seu Pedido
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; Paper Model 3D Brasil - "Seus melhores modelos 3D"</p>
+        <p class="copyright">Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Botão Flutuante Topo -->
+    <a href="#" id="btn-topo" onClick="window.scrollTo({top:0,behavior:'smooth'});return false;" title="Ir ao topo">Topo</a>
+
+    <style>
+        #btn-topo {
+            position: fixed;
+            bottom: 40px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #00BFFF;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 0 15px #00BFFF, 0 0 30px rgba(0,191,255,0.6);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            letter-spacing: 0.5px;
+        }
+        #btn-topo:hover {
+            background: #00e0ff;
+            box-shadow: 0 0 25px #00e0ff, 0 0 50px rgba(0,224,255,0.8);
+            transform: translateY(-4px);
+        }
+    </style>
+
+</body>
+</html>
